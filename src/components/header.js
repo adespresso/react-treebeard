@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import shallowEqual from 'shallowequal';
-import deepEqual from 'deep-equal';
 
 class NodeHeader extends React.Component {
     constructor(props){
@@ -19,11 +19,10 @@ class NodeHeader extends React.Component {
         const nextPropKeys = Object.keys(nextProps);
         for(let i = 0; i < nextPropKeys.length; i++){
             const key = nextPropKeys[i];
-            if(key === 'animations'){ continue; }
             const isEqual = shallowEqual(props[key], nextProps[key]);
             if(!isEqual){ return true; }
         }
-        return !deepEqual(props.animations, nextProps.animations, { strict: true });
+        return false;
     }
     render(){
         const {style, decorators} = this.props;
@@ -38,7 +37,6 @@ class NodeHeader extends React.Component {
                 terminal={terminal}
                 onClick={this.props.onClick}
                 onToggle={this.props.onToggle}
-                animations={this.props.animations}
                 node={this.props.node}
             />
         );
@@ -46,15 +44,11 @@ class NodeHeader extends React.Component {
 }
 
 NodeHeader.propTypes = {
-    style: React.PropTypes.object.isRequired,
-    decorators: React.PropTypes.object.isRequired,
-    animations: React.PropTypes.oneOfType([
-        React.PropTypes.object,
-        React.PropTypes.bool
-    ]).isRequired,
-    node: React.PropTypes.object.isRequired,
-    onClick: React.PropTypes.func,
-    onToggle: React.PropTypes.func
+    style: PropTypes.object.isRequired,
+    decorators: PropTypes.object.isRequired,
+    node: PropTypes.object.isRequired,
+    onClick: PropTypes.func,
+    onToggle: PropTypes.func
 };
 
 export default NodeHeader;

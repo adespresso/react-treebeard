@@ -1,11 +1,11 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import TreeNode from './node';
 import defaultDecorators from './decorators';
 import defaultTheme from '../themes/default';
-import defaultAnimations from '../themes/animations';
 
 class TreeBeard extends React.Component {
     constructor(props){
@@ -32,7 +32,6 @@ class TreeBeard extends React.Component {
                         node={node}
                         onClick={this.props.onClick}
                         onToggle={this.props.onToggle}
-                        animations={this.props.animations}
                         decorators={this.props.decorators}
                         style={this.style.tree.node}
                     />
@@ -43,23 +42,18 @@ class TreeBeard extends React.Component {
 }
 
 TreeBeard.propTypes = {
-    style: React.PropTypes.object.isRequired,
-    data: React.PropTypes.oneOfType([
-        React.PropTypes.object,
-        React.PropTypes.array
+    style: PropTypes.object.isRequired,
+    data: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.array
     ]).isRequired,
-    animations: React.PropTypes.oneOfType([
-        React.PropTypes.object,
-        React.PropTypes.bool
-    ]),
-    onClick: React.PropTypes.func,
-    onToggle: React.PropTypes.func,
-    decorators: React.PropTypes.object
+    onClick: PropTypes.func,
+    onToggle: PropTypes.func,
+    decorators: PropTypes.object
 };
 
 TreeBeard.defaultProps = {
     style: defaultTheme,
-    animations: defaultAnimations,
     decorators: defaultDecorators
 };
 

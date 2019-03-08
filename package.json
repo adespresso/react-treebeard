@@ -1,6 +1,6 @@
 {
   "name": "react-treebeard",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "React Tree View Component",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
     "example": "webpack-dev-server --content-base ./example/ --config ./example/webpack.config.js"
   },
   "peerDependencies": {
-    "react": "^0.14 || ^15.0",
-    "react-dom": "^0.14 || ^15.0"
+    "react": "^0.14 || ^15.0 || ^16.0",
+    "react-dom": "^0.14 || ^15.0 || ^16.0"
   },
   "repository": {
     "type": "git",
@@ -33,10 +33,13 @@
   },
   "homepage": "https://github.com/alexcurtis/react-treebeard#readme",
   "devDependencies": {
-    "babel": "^5.8.29",
-    "babel-core": "^5.8.29",
-    "babel-eslint": "^4.1.3",
-    "babel-loader": "^5.3.3",
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
     "chai": "^3.4.0",
     "del": "^2.0.2",
     "eslint": "^1.8.0",
@@ -49,7 +52,7 @@
     "gulp-util": "^3.0.7",
     "istanbul": "^0.3.22",
     "istanbul-instrumenter-loader": "^0.1.3",
-    "karma": "^0.13.14",
+    "karma": "^1.2.0",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^0.2.1",
     "karma-coverage": "^0.5.3",
@@ -57,12 +60,12 @@
     "karma-mocha": "^0.2.0",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-spec-reporter": "0.0.22",
-    "karma-webpack": "^1.7.0",
+    "karma-webpack": "^1.8.0",
     "mocha": "^2.3.3",
     "node-libs-browser": "^0.5.3",
-    "react": "^0.14.7",
-    "react-addons-test-utils": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "react": "^15.6.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-hot-loader": "^1.3.0",
     "rimraf": "^2.4.4",
     "sinon": "uberVU/Sinon.JS.git",
@@ -71,11 +74,8 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
-    "babel-runtime": "^5.8.29",
-    "deep-equal": "^1.0.1",
-    "radium": "^0.16.6",
-    "react-utils": "alexcurtis/react-utils",
-    "shallowequal": "^0.2.2",
-    "velocity-react": "^1.1.2"
+    "prop-types": "^15.7.2",
+    "radium": "^0.19.6",
+    "shallowequal": "^0.2.2"
   }
 }

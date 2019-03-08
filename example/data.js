@@ -35,7 +35,6 @@ export default {
         {
             name: 'themes',
             children: [
-                { name: 'animations.js' },
                 { name: 'default.js' }
             ]
         },

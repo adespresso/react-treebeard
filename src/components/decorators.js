@@ -1,8 +1,8 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
-import {VelocityComponent} from 'velocity-react';
 
 const Loading = (props) => {
     return (
@@ -13,7 +13,7 @@ const Loading = (props) => {
 };
 
 Loading.propTypes = {
-    style: React.PropTypes.object.isRequired
+    style: PropTypes.object.isRequired
 };
 
 const Toggle = (props) => {
@@ -44,9 +44,9 @@ const Toggle = (props) => {
 };
 
 Toggle.propTypes = {
-    node: React.PropTypes.object.isRequired,
-    style: React.PropTypes.object.isRequired,
-    onClick: React.PropTypes.func.isRequired
+    node: PropTypes.object.isRequired,
+    style: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 const Header = (props) => {
@@ -65,12 +65,11 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-    style: React.PropTypes.object.isRequired,
-    node: React.PropTypes.object.isRequired,
-    onClick: React.PropTypes.func.isRequired
+    style: PropTypes.object.isRequired,
+    node: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
-@Radium
 class Container extends React.Component {
     constructor(props){
         super(props);
@@ -88,24 +87,13 @@ class Container extends React.Component {
                 ref="clickable"
                 className="treebeard-container"
                 style={style.container}>
-                { !terminal ? this.renderToggle() : null }
+                { !terminal ? this.renderToggleDecorator() : null }
                 <decorators.Header
                     node={node}
                     style={style.header}
                     onClick={onClick}
                 />
             </div>
-        );
-    }
-    renderToggle(){
-        const animations = this.props.animations;
-        if(!animations){ return this.renderToggleDecorator(); }
-        return (
-            <VelocityComponent ref="velocity"
-                duration={animations.toggle.duration}
-                animation={animations.toggle.animation}>
-                {this.renderToggleDecorator()}
-            </VelocityComponent>
         );
     }
     renderToggleDecorator(){
@@ -115,21 +103,17 @@ class Container extends React.Component {
 }
 
 Container.propTypes = {
-    style: React.PropTypes.object.isRequired,
-    decorators: React.PropTypes.object.isRequired,
-    terminal: React.PropTypes.bool.isRequired,
-    onClick: React.PropTypes.func.isRequired,
-    onToggle: React.PropTypes.func.isRequired,
-    animations: React.PropTypes.oneOfType([
-        React.PropTypes.object,
-        React.PropTypes.bool
-    ]).isRequired,
-    node: React.PropTypes.object.isRequired
+    style: PropTypes.object.isRequired,
+    decorators: PropTypes.object.isRequired,
+    terminal: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    node: PropTypes.object.isRequired
 };
 
 export default {
     Loading,
     Toggle,
     Header,
-    Container
+    Container: Radium(Container),
 };

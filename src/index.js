@@ -1,7 +1,11 @@
 'use strict';
-module.exports = {
-    Treebeard: require('./components/treebeard'),
-    decorators: require('./components/decorators'),
-    animations: require('./themes/animations'),
-    theme: require('./themes/default')
+
+import Treebeard from './components/treebeard';
+import decorators from './components/decorators';
+import theme from './themes/default';
+
+export {
+    Treebeard,
+    decorators,
+    theme
 };

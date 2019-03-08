@@ -21,26 +21,4 @@ module.exports = {
 
         };
     },
-    createAnimations: function(){
-        return {
-            toggle: () => {
-                return {
-                    animation: 'fadeOut',
-                    duration: 0
-                };
-            },
-            drawer: () => {
-                return {
-                    enter: {
-                        animation: 'slideDown',
-                        duration: 0
-                    },
-                    leave: {
-                        animation: 'slideUp',
-                        duration: 0
-                    }
-                };
-            }
-        };
-    }
 };
